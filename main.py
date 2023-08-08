@@ -1,3 +1,4 @@
+import random
 from pyrogram import filters
 from client import app
 from dotenv import load_dotenv
@@ -12,13 +13,19 @@ if not (victim_ids or group_ids):
     raise Exception('You have to pass both VICTIM_USER_IDS and VICTIM_GROUP_IDS env variables')
 
 
+emojis = ['🔥', '🎉', '👍', '❤️', '🥰']
+
 @app.on_message(
-    filters.chat(list(map(int, group_ids.split(',')))) &
-    filters.user(list(map(int, victim_ids.split(','))))
+    filters.chat(list(map(int, group_ids.split(',')))) 
 )
 async def react(_, message):
+    print(message)
+
+    # randomly select an emoji
+    emoji = random.choice(emojis)
+    print(emoji)
     try:
-        await message.react(emoji='💩')
+        await message.react(emoji=emoji)
     except Exception as e:
         print(e)
 

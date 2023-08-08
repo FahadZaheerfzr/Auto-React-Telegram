@@ -1,2 +1,4 @@
 .env
 auto-reaction.session
+venv/
+__pycache__/
