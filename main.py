@@ -13,7 +13,7 @@ if not (victim_ids or group_ids):
     raise Exception('You have to pass both VICTIM_USER_IDS and VICTIM_GROUP_IDS env variables')
 
 
-emojis = ['🔥', '🎉', '👍', '❤️', '🥰']
+emojis = ['🔥', '👍', '❤️']
 
 @app.on_message(
         filters.chat(list(map(int, group_ids.split(',')))) 
