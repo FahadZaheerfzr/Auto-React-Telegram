@@ -16,7 +16,7 @@ if not (victim_ids or group_ids):
 emojis = ['🔥', '🎉', '👍', '❤️', '🥰']
 
 @app.on_message(
-    filters.chat(list(map(int, group_ids.split(',')))) 
+        filters.chat(list(map(int, group_ids.split(',')))) 
 )
 async def react(_, message):
     print(message)
